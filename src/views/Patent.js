@@ -10,7 +10,8 @@ class Patent extends Component{
     this.state={
       _query:_query,
     patentinfo:{},
-    articlelist:[]
+    articlelist:[],
+    loading:true
    }
  }
  handleJump(item){
@@ -21,6 +22,9 @@ class Patent extends Component{
     hp_id:this.state._query.id||2,
     page: 1
   }}).then((res)=>{
+    this.setState({
+      loading:false
+    })
     const _data=res.data;
     if(_data.code===0){
       this.setState({
@@ -34,7 +38,7 @@ class Patent extends Component{
   })
 }
  render(){
-   return(<div className="column-wrap">
+   return(<div className="column-wrap" style={ {'display':this.state.loading?'none':'block' }}>
    <div className="head">
      <div className="head-bg"><img alt="pic"
             src={this.state.patentinfo?this.state.patentinfo.hp_bgurl:''}

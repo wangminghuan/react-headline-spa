@@ -13,7 +13,7 @@ const ErrorRoute=lazy(() => import('../views/Error'));
 const AppRoutes=()=>{
   return (
     <Router>
-      <Suspense fallback={<div>Loading...</div>}>  
+      <Suspense fallback={<div className="_loading-mask">正在加载...</div>}>  
           <Switch> 
             <Route exact path="/" component={Home}/>
             <Route path="/home" component={Home} />

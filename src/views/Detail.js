@@ -8,6 +8,7 @@ class Detail extends Component{
     this.props.location.search.replace(/([^?&=]+)=([^&]+)/g, (_, k, v)=> _query[k] = v);
     this.state={
       _query:_query,
+      loading:true,
       renderData:{
           commentList: [],
           commentNum: 0,
@@ -24,6 +25,9 @@ class Detail extends Component{
       }
       }).then((res)=>{
       const _data=res.data;
+      this.setState({
+        loading:false
+      })
       if(_data.code===0){
         const renderData=_data.data||{};
         if(!renderData.commentList)renderData.commentList=[];
@@ -40,7 +44,7 @@ class Detail extends Component{
   }
   render(){
     return (
-      <div className="detail-outer-wrap">
+      <div className="detail-outer-wrap" style={ {'display':this.state.loading?'none':'block' }}>
     <div className="detail-inner-wrap">
       <div className="article-wrap">
         <h2>{this.state.renderData.title}</h2>

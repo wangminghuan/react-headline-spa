@@ -10,7 +10,8 @@ class Subject extends Component{
     this.state={
       _query:_query,
       subjectinfo:{},
-      articlelist:[]
+      articlelist:[],
+      loading:true
     }
   }
   handleJump(item){
@@ -25,6 +26,9 @@ class Subject extends Component{
       }
       }).then((res)=>{
       const _data=res.data;
+        this.setState({
+          loading:false
+        })
       if(_data.code===0){
         this.setState({
           subjectinfo:_data.data.subjectinfo||{},
@@ -37,7 +41,7 @@ class Subject extends Component{
     })
   }
   render(){
-    return (<div className="subject-wrap">
+    return (<div className="subject-wrap" style={ {'display':this.state.loading?'none':'block' }}>
     <div className="head">
       <div className="img-wrap"><img alt="pic"
              src={this.state.subjectinfo.hs_bgurl}
