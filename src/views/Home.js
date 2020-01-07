@@ -1,37 +1,27 @@
 import React, {Component} from 'react';
 import {Link } from 'react-router-dom'
-import "./Home.css"
+import logo from '@/assets/logo.svg';
+import "./Home.less"
 class Home extends Component{
     constructor(props){
         super(props);
         this.state = {
-          value:"Hello Runoob!",
-          num:1
         }
-    }
-    handleChange(event){
-      this.setState({value: event.target.value});
-    }
-    handleClick(){
-      this.setState({num:this.state.num + 1})
-    }
-    componentWillMount(){
-      //在render之前，在这方法里的代码调用setState方法不会触发重渲染
-
     }
     render(){
       return (
-        <section class="container">
+        <section className="container">
           <div>
-          <h1 class="title">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="title">
             react-app-project
           </h1>
-          <h2 class="subtitle">
+          <h2 className="subtitle">
             基于react创建的SPA项目
           </h2>
-          <div class="links">
-          <Link to={`/patent?id=3`}><button class="mint-button mint-button--primary mint-button--normal"><label class="mint-button-text">进入专栏页面</label></button></Link>
-          <Link to={`/subject?id=2`}><button class="mint-button mint-button--primary mint-button--normal"><label class="mint-button-text">进入专题页面</label></button></Link>
+          <div className="links">
+          <Link to={`/patent?id=4`} ><button className="mint-button mint-button--primary mint-button--normal"><label className="mint-button-text">进入专栏页面</label></button></Link>
+          <Link to={`/subject?id=2`}><button className="mint-button mint-button--primary mint-button--normal"><label className="mint-button-text">进入专题页面</label></button></Link>
           </div>
           </div>
       </section>

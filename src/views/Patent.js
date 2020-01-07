@@ -1,21 +1,24 @@
 
 import React,{Component} from "react"
-import http from "../utils/http"
+import http from "@/utils/http"
+import "@/views/Patent.less"
 class Patent extends Component{
  constructor(props){
    super(props);
-   this.state={
+   let _query = {};
+    this.props.location.search.replace(/([^?&=]+)=([^&]+)/g, (_, k, v)=> _query[k] = v);
+    this.state={
+      _query:_query,
     patentinfo:{},
     articlelist:[]
    }
  }
  handleJump(item){
-  console.log(item)
- }
+  this.props.history.push('/detail?id='+item.ha_id)
+}
  componentDidMount(){
-  console.log("组件已装载，执行ajax")
   http.get(`/api/head/head/patentDetail`, {params: {
-    hp_id:  2,
+    hp_id:this.state._query.id||2,
     page: 1
   }}).then((res)=>{
     const _data=res.data;
