@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
-import {Link } from 'react-router-dom'
+// import {Link } from 'react-router-dom'
 import logo from '@/assets/logo.svg';
 import "./Home.less"
+import { Button } from 'antd-mobile';
 class Home extends Component{
     constructor(props){
         super(props);
         this.state = {
         }
+    }
+    handleJump(path){
+      this.props.history.push(path)
     }
     render(){
       return (
@@ -20,8 +24,10 @@ class Home extends Component{
             基于react创建的SPA项目
           </h2>
           <div className="links">
-          <Link to={`/patent?id=4`} ><button className="mint-button mint-button--primary mint-button--normal"><label className="mint-button-text">进入专栏页面</label></button></Link>
-          <Link to={`/subject?id=2`}><button className="mint-button mint-button--primary mint-button--normal"><label className="mint-button-text">进入专题页面</label></button></Link>
+          <Button type="primary" style={ {marginRight:'20px'}} inline onClick={()=>this.handleJump('/patent/4') }>进入专栏页面</Button>
+          <Button type="primary" inline onClick={()=>this.handleJump('/subject/2') }>进入专题页面</Button>
+          {/* <Link to={`/patent/4`} >进入专栏页面</Link>
+          <Link to={`/subject/2`}>进入专题页面</Link> */}
           </div>
           </div>
       </section>

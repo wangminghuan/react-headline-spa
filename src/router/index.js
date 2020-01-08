@@ -17,9 +17,9 @@ const AppRoutes=()=>{
           <Switch> 
             <Route exact path="/" component={Home}/>
             <Route path="/home" component={Home} />
-            <Route path="/patent" component={Patent} />
-            <Route path="/subject" component={Subject} />
-            <Route path="/detail" component={Detail} />
+            <Route path="/patent/:id" component={Patent} />
+            <Route path="/subject/:id" component={Subject} />
+            <Route path="/detail/:id" component={Detail} />
             <Route component={ErrorRoute} />
           </Switch>
        </Suspense>

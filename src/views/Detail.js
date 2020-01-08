@@ -18,10 +18,20 @@ class Detail extends Component{
       }
     }
   }
-  componentDidMount(){
+  componentWillReceiveProps(nextProps){
+    let key = nextProps.match.params.id;
+    this.getDetail(key)
+ }
+  handleJump(item){
+    this.props.history.push('/detail/'+item.ha_id)
+  }
+  getDetail(id){
+    this.setState({
+      loading:true
+    })
     http.get(`/api/head/head/detail`, {
       params: {
-        ha_id: this.state._query.id
+        ha_id: id
       }
       }).then((res)=>{
       const _data=res.data;
@@ -41,6 +51,9 @@ class Detail extends Component{
       }
       
     })
+  }
+  componentDidMount(){
+    this.getDetail(this.props.match.params.id)
   }
   render(){
     return (
