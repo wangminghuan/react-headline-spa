@@ -1,6 +1,6 @@
 
 import React,{Component} from "react"
-import http from "@/utils/http"
+import http from "@/http"
 import "@/views/Patent.less"
 import { Toast, ListView } from 'antd-mobile';
 

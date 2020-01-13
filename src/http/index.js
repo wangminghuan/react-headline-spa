@@ -1,6 +1,6 @@
 import axios from 'axios'
 import qs from "qs"
-import encodeParams from "../assets/sign"
+import encodeParams from "@/assets/sign"
 import { Toast } from 'antd-mobile';
 const http = axios.create({
   baseURL: "/",//根url

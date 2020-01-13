@@ -1,6 +1,6 @@
 import React,{Component} from "react";
-import http from "@/utils/http"
-import "./Detail.less"
+import http from "@/http"
+import '@/views/Detail.less';
 class Detail extends Component{
   constructor(props){
     super(props);

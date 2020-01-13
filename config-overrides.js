@@ -1,21 +1,21 @@
-const path=require("path");
-const resolve=(dir)=> path.join(__dirname, dir);
-const { override,addLessLoader,fixBabelImports } = require('customize-cra');
-const addCustomize = () => config => {
-    config.resolve.alias = {
-    ...config.resolve.alias,
-    '@': resolve('src')
- };
- return config;
-}
+const path = require("path");
+const resolve = (dir) => path.join(__dirname, dir);
+const {
+  override,
+  addLessLoader,
+  fixBabelImports,
+  addWebpackAlias
+} = require('customize-cra');
 process.env.GENERATE_SOURCEMAP = "false";
-module.exports = {
-  webpack: override(
-    fixBabelImports('import', {
-       libraryName: 'antd-mobile',
-       style: 'css',
-       }),
-    addLessLoader(),
-    addCustomize(),
-  )
-}
+module.exports = override(
+  fixBabelImports('import', {
+    libraryName: 'antd-mobile',
+    style: 'css',
+  }),
+  // 配置路径别名
+  addWebpackAlias({
+    '@': resolve("src")
+  }),
+
+  addLessLoader()
+)

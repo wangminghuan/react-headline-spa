@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 // import {Link } from 'react-router-dom'
 import logo from '@/assets/logo.svg';
-import "./Home.less"
+import "@/views/Home.less"
 import { Button } from 'antd-mobile';
 class Home extends Component{
     constructor(props){
