@@ -14,3 +14,6 @@ npm start
 - 使用 `setupProxy.js` 文件配置反向代理,该文件文件放置在src目录下，cra会自动检测（cra已经将devServer部分从config中抽离出去了）
 - 引入Ant Design 部分组件，且引入了按需加载功能，参见`babel-plugin-import`部分
 
+## 项目预览
+
+[基于react创建的SPA项目](http://122.51.207.71:3001/react)

@@ -1,7 +1,7 @@
 
 import React, { lazy ,Suspense} from 'react'; //在一条语句中，同时输入默认方法和其他接口
 // import { HashRouter as Router, Route,Switch} from 'react-router-dom';
-import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import { HashRouter as Router, Route,Switch} from 'react-router-dom';
 
 const  Home =lazy(() => import('@/views/Home'));
 const  Patent =lazy(() => import('@/views/Patent'));
