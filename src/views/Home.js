@@ -24,10 +24,7 @@ class Home extends Component{
             基于react创建的SPA项目
           </h2>
           <div className="links">
-          <Button type="primary" style={ {marginRight:'20px'}} inline onClick={()=>this.handleJump('/patent/4') }>进入专栏页面</Button>
-          <Button type="primary" inline onClick={()=>this.handleJump('/subject/2') }>进入专题页面</Button>
-          {/* <Link to={`/patent/4`} >进入专栏页面</Link>
-          <Link to={`/subject/2`}>进入专题页面</Link> */}
+          <Button type="primary" style={ {marginRight:'20px'}} inline onClick={()=>this.handleJump('/news-all') }>今日头条-推荐板块</Button>
           </div>
           </div>
       </section>

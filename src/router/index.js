@@ -4,8 +4,7 @@ import React, { lazy ,Suspense} from 'react'; //在一条语句中，同时输�
 import { HashRouter as Router, Route,Switch} from 'react-router-dom';
 
 const  Home =lazy(() => import('@/views/Home'));
-const  Patent =lazy(() => import('@/views/Patent'));
-const  Subject =lazy(() => import('@/views/Subject'));
+const  All =lazy(() => import('@/views/All'));
 const  Detail =lazy(() => import('@/views/Detail'));
 const ErrorRoute=lazy(() => import('@/views/Error'));
 // 有<Switch>标签，则其中的<Route>在路径相同的情况下，只匹配第一个，这个可以避免重复匹配
@@ -17,8 +16,7 @@ const AppRoutes=()=>{
           <Switch> 
             <Route exact path="/" component={Home}/>
             <Route path="/home" component={Home} />
-            <Route path="/patent/:id" component={Patent} />
-            <Route path="/subject/:id" component={Subject} />
+            <Route path="/news-all" component={All} />
             <Route path="/detail/:id" component={Detail} />
             <Route component={ErrorRoute} />
           </Switch>

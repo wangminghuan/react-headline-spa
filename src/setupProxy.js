@@ -2,11 +2,11 @@ const proxy = require('http-proxy-middleware')
 
 module.exports = function(app) {
   app.use(
-    proxy('/api', {
-      target: 'http://service.inswindows.com/',
+    proxy('/testapi', {
+      target: 'https://m.toutiao.com',
       changeOrigin: true,
-      pathRewrite: {
-        // '^/api': ''
+      pathRewrite:{
+        '^/testapi':'/'
       }
     })
   )
